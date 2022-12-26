@@ -10,10 +10,9 @@ int main()
 {
     //int fd_file = 0; // file descriptor for opening file
     int fd_fifo = 0; // file descriptor for opening fifo
-    int nbytes_read = 0;
-    int cls_ret_file = 0;
-    int cls_ret_fifo = 0;
-    char buff[2054];
+    int nbytes_read = 0; // ret value for read fifo
+    int cls_ret_fifo = 0; // ret value for close fifo
+    char buff[10000];
     int count = 0;
 
     
@@ -30,9 +29,8 @@ int main()
         exit(EXIT_FAILURE);
     }
     
-   // printf("the size of buff is :: %ld\n", strlen(buff));
-   // printf("the size of buff_fifo is :: %ld\n", strlen(buff_fifo));
 
+    // calculating the occurrence of letter 's'
    for(int i=0; i<=2047; i++) {
         if (buff[i] == 's') {
             count++;
